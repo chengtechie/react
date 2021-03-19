@@ -1,0 +1,33 @@
+import React from 'react'
+import {renderToString} from 'react-dom/server'
+import {StaticRouter} from "react-router-dom";
+import Routes from "../client/Routes";
+import {Helmet} from "react-helmet/es/Helmet";
+
+export default (req) => {
+    const content = renderToString(
+        <StaticRouter location={req.path} context={{}}>
+            <Routes />
+        </StaticRouter>
+    )
+
+    const helmet = Helmet.renderStatic()
+
+    // below bundle.js no need append directory 'public'
+    // because of express static in index.js
+
+    // if want dynamic data in open graph (for FB sharing)
+    // cannot use helmet.meta, need to do manually
+    return `
+        <html>
+            <head>
+                ${helmet.title.toString()}
+                ${helmet.meta.toString()}
+            </head>
+            <body>
+                <div id="root">${content}</div>
+                <script src="bundle.js"></script>  
+            </body>
+        </html>
+    `
+}

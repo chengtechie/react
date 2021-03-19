@@ -1,0 +1,21 @@
+
+API server -> render server -> browser
+
+SSR (Render server) -> generate HTML from server
+
+index.js -> webpack -> babel -> bundle.js (run on node server)
+node server cannot read jsx by default!!!
+
+jsx -> server js code (webpack)
+react components -> html (renderToString from react-dom-server)
+
+bundle.js has to be regenerated if any react components change
+
+1. send webpage html
+2. send bundle.js (for client side)
+3. (same as CSR react app, render 2nd time)
+
+browser req -> express route handler -> react router
+
+BrowserRouter -> ONLY client! (can see path on address bar)
+StaticRouter -> SSR (required prop -> context)
