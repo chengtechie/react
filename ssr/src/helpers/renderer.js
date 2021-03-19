@@ -2,7 +2,7 @@ import React from 'react'
 import {renderToString} from 'react-dom/server'
 import {StaticRouter} from "react-router-dom";
 import Routes from "../client/Routes";
-import {Helmet} from "react-helmet/es/Helmet";
+import {Helmet} from "react-helmet";
 
 export default (req) => {
     const content = renderToString(

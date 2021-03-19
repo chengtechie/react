@@ -9,6 +9,6 @@ import Routes from './Routes'
 ReactDOM.hydrate(
     <BrowserRouter>
         <Routes />
-    </BrowserRouter>
-    , document.querySelector('#root'))
+    </BrowserRouter>,
+    document.querySelector('#root'))
 
