@@ -2,7 +2,10 @@
 // import AlexaImage from '../images/alexa.png'
 // import CortanaImage from '../images/cortana.png'
 // import SiriImage from '../images/siri.png'
-import {useState} from 'react'
+
+// import '../css/App.css'
+// import {useState} from 'react'
+// import Animal from "./Animal";
 
 // import 'bulma/css/bulma.css' // use css from npm package node modules
 
@@ -62,19 +65,30 @@ function App() {
     )
     */ // Learn Props above
 
-    // Learn event system, do NOT include () because we need function reference only
-    const [count, setCount] = useState(0)
-
-    const handleClick = () => {
-        setCount(count + 1)
+    /* // Learn state below
+    function getRandomAnimal() {
+        const animals = ['bird', 'cat', 'dog', 'gator', 'horse']
+        return animals[Math.floor(Math.random() * animals.length)]
     }
 
+    const [animals, setAnimals] = useState([])
+
+    // Learn event system, do NOT include () because we need function reference only
+    const handleClick = () => {
+        setAnimals([...animals, getRandomAnimal()])
+    }
+
+    const renderedAnimals = animals.map((animal, index) => {
+        return <Animal type={animal} key={index}/>
+    })
+
     return (
-        <div>
+        <div className={"app"}>
             <button onClick={handleClick}>Add Animal</button>
-            <div>Number of animals: {count}</div>
+            <div className={"animal-list"}>{renderedAnimals}</div>
         </div>
     )
+    */ // Learn state above
 }
 
 export default App
