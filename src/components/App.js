@@ -1,3 +1,5 @@
+
+
 // import ProfileCard from "./ProfileCard";
 // import AlexaImage from '../images/alexa.png'
 // import CortanaImage from '../images/cortana.png'
@@ -8,6 +10,8 @@
 // import Animal from "./Animal";
 
 // import 'bulma/css/bulma.css' // use css from npm package node modules
+
+import searchImage from "../api";
 
 function App() {
     // Outside tag
@@ -89,6 +93,13 @@ function App() {
         </div>
     )
     */ // Learn state above
+
+    // Below Learn Call HTTP Rest API
+    searchImage().then(result => console.log(result))
+    return (
+        <div></div>
+    )
+    // Above Learn Call HTTP Rest API
 }
 
 export default App
