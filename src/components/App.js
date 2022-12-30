@@ -12,6 +12,7 @@
 // import 'bulma/css/bulma.css' // use css from npm package node modules
 
 import searchImage from "../api";
+import SearchBar from "./SearchBar";
 
 function App() {
     // Outside tag
@@ -95,9 +96,17 @@ function App() {
     */ // Learn state above
 
     // Below Learn Call HTTP Rest API
-    searchImage().then(result => console.log(result))
+
+    const handleSubmit = async (term) => {
+        // console.log(`Search ${term}`)
+        const results = await searchImage(term)
+        console.log(results)
+    }
+
     return (
-        <div></div>
+        <div>
+            <SearchBar onSubmit={handleSubmit}/>
+        </div>
     )
     // Above Learn Call HTTP Rest API
 }
