@@ -6,13 +6,15 @@
 // import SiriImage from '../images/siri.png'
 
 // import '../css/App.css'
-// import {useState} from 'react'
+import '../css/SearchBar.css'
+import {useState} from 'react'
 // import Animal from "./Animal";
 
 // import 'bulma/css/bulma.css' // use css from npm package node modules
 
 import searchImage from "../api";
 import SearchBar from "./SearchBar";
+import ImageList from "./ImageList";
 
 function App() {
     // Outside tag
@@ -96,16 +98,18 @@ function App() {
     */ // Learn state above
 
     // Below Learn Call HTTP Rest API
+    const [images, setImages] = useState([])
 
     const handleSubmit = async (term) => {
         // console.log(`Search ${term}`)
         const results = await searchImage(term)
-        console.log(results)
+        setImages(results)
     }
 
     return (
         <div>
             <SearchBar onSubmit={handleSubmit}/>
+            <ImageList images={images} />
         </div>
     )
     // Above Learn Call HTTP Rest API

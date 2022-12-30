@@ -13,8 +13,9 @@ function SearchBar({onSubmit}) {
     }
 
     return (
-        <div>
+        <div className={'search-bar'}>
             <form onSubmit={handleFormSubmit}>
+                <label>Enter Search Term</label>
                 <input value={term} onChange={handleChange}/>
                 {term.length < 3 && 'Min 3 characters on search term'}
             </form>

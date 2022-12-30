@@ -1,7 +1,12 @@
+import Image from "./Image";
+import '../css/ImageList.css'
 
-function ImageList() {
+function ImageList({images}) {
+    const renderedImages = images.map(image => {
+        return <Image key={image.id} image={image}/>
+    })
     return (
-        <div>ImageList</div>
+        <div className={'image-list'}>{renderedImages}</div>
     )
 }
 

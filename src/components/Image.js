@@ -1,7 +1,7 @@
 
-function Image() {
+function Image({image}) {
     return (
-        <div>Image</div>
+        <img src={image.urls.small} alt={image.alt_description} />
     )
 }
 
