@@ -1,32 +1,26 @@
-// import ButtonPage from "./pages/ButtonPage";
-// import Accordion from "./components/Accordion";
-import Dropdown from "./components/Dropdown";
-import {useState} from "react";
+import Route from "./components/Route";
+import AccordionPage from "./pages/AccordionPage";
+import DropdownPage from "./pages/DropdownPage";
+import Sidebar from "./components/Sidebar";
+import ButtonPage from "./pages/ButtonPage";
+
 
 function App() {
-    // const items = [
-    //     {label: 'Can I use Javascript', content: 'It is good to use Javascript when you have time to do it'},
-    //     {label: 'Can I use React', content: 'It is good to use React when you have time to do it'},
-    //     {label: 'Can I use Node', content: 'It is good to use Node when you have time to do it'},
-    // ]
-
-    const [value, setValue] = useState(null)
-
-    const handleSelect = (option) => {
-        setValue(option)
-    }
-
-    const options = [
-        {label: 'Red', value: 'red'},
-        {label: 'Blue', value: 'blue'},
-        {label: 'Green', value: 'green'},
-    ]
 
     return (
-        <div>
-            {/*<ButtonPage />*/}
-            {/*<Accordion items={items}/>*/}
-            <Dropdown options={options} value={value} onChange={handleSelect}/>
+        <div className={'container mx-auto grid grid-cols-6 gap-4 mt-4'}>
+            <Sidebar/>
+            <div className={'col-span-5'}>
+                <Route path={'/accordion'}>
+                    <AccordionPage />
+                </Route>
+                <Route path={'/dropdown'}>
+                    <DropdownPage />
+                </Route>
+                <Route path={'/buttons'}>
+                    <ButtonPage />
+                </Route>
+            </div>
         </div>
     )
 }
